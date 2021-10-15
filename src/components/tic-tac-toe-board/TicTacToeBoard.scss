@@ -1,0 +1,14 @@
+.board {
+  background-color: $color-black;
+  box-shadow: 0 0.125rem 0.5rem rgba($color-black, 0.7);
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns-rows), 1fr);
+  grid-template-rows: repeat(var(--grid-columns-rows), 1fr);
+  grid-gap: 0.0625rem;
+  height: 15rem;
+  width: 15rem;
+
+  &--disabled {
+    pointer-events: none;
+  }
+}

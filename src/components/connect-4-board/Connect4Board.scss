@@ -1,0 +1,20 @@
+.board {
+  box-shadow: 0 0.125rem 0.5rem rgba($color-black, 0.7);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  height: 15.4rem;
+  user-select: none;
+  width: 18rem;
+
+  &--disabled {
+    pointer-events: none;
+  }
+}
+
+@media only screen and (min-width: $xs) {
+  .board {
+    height: 22.5rem;
+    width: 26.25rem;
+  }
+}

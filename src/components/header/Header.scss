@@ -1,0 +1,57 @@
+.header {
+  align-items: center;
+  background-color: $color-white;
+  box-shadow: 0 0.125rem 0.5rem rgba($color-black, 0.7);
+  display: flex;
+  height: $header-height;
+  justify-content: space-between;
+  left: 0;
+  padding: 1.25rem 1.5rem;
+  position: fixed;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  &--on-top {
+    background-color: $color-red;
+    color: $color-white;
+  }
+
+  &__logo {
+    width: 8.5rem;
+  }
+
+  &__title {
+    font-size: 90%;
+    text-align: right;
+
+    &--bold {
+      font-weight: 700;
+    }
+
+    &--italic {
+      font-style: italic;
+    }
+  }
+}
+
+@media only screen and (min-width: $sm) {
+  .header {
+    padding: 1.25rem $horizontal-padding-desktop;
+
+    &__logo {
+      width: 10rem;
+    }
+  }
+}
+
+@media only screen and (min-width: $xl) {
+  .header {
+    padding: 1.25rem $horizontal-padding-desktop-large;
+  }
+}
