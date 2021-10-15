@@ -1,0 +1,52 @@
+@import "settings/index";
+
+$horizontal-padding-mobile: 1rem;
+$horizontal-padding-desktop: 7rem;
+$horizontal-padding-desktop-large: 11rem;
+$header-height: 4rem;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: 0.125rem solid $color-red;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  color: $color-dark-grey;
+  font-family: $font-glacial-indifference;
+  font-size: 0.9rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media only screen and (min-width: $sm) {
+  $horizontal-padding: 7rem;
+
+  body {
+    font-size: 1rem;
+  }
+}

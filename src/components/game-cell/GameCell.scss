@@ -1,0 +1,45 @@
+.game-cell {
+  background-color: $color-light-grey;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  padding: 0.2rem;
+  width: 100%;
+
+  &--circle {
+    background-color: $color-grey;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &--disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &:hover {
+    background-color: $color-grey;
+  }
+
+  &__circle {
+    background-color: $color-light-grey;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: -0.1rem -0.1rem 0.2rem 0 inset rgba($color-black, 50%);
+    height: 90%;
+    margin: auto;
+    width: 90%;
+  }
+
+  &__icon {
+    width: 75%;
+  }
+}

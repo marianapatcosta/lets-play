@@ -1,0 +1,28 @@
+.game-history {
+  &__subtitle {
+    margin-bottom: 1rem;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__round-winner {
+    margin: 0 0.25rem;
+  }
+
+  &__draw {
+    font-weight: 700;
+    opacity: 0.5;
+
+    img {
+      width: 1.2rem;
+    }
+  }
+
+  &__not-played {
+    font-size: 150%;
+    padding: 0 0.1rem;
+  }
+}

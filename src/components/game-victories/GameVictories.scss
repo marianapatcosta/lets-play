@@ -1,0 +1,58 @@
+.game-victories {
+  display: flex;
+  flex-direction: column;
+
+  &__subtitle {
+    margin-bottom: 1rem;
+  }
+
+  &__name {
+    font-size: 125%;
+  }
+
+  &__percentages {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__percentages-per-player {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+  }
+
+  &__ratio {
+    align-items: center;
+    background-color: $color-dark-grey;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    color: $color-white;
+    display: flex;
+    font-size: 85%;
+    font-weight: 700;
+    height: 2.75rem;
+    justify-content: center;
+    margin: 0 0.3rem 0.3rem;
+    width: 2.75rem;
+
+    &--winner {
+      background-color: $color-green-success;
+    }
+
+    &--loser {
+      background-color: $color-red-error;
+    }
+
+    &--draw {
+      background-color: $color-yellow;
+    }
+  }
+}

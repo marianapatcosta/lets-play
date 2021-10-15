@@ -1,0 +1,107 @@
+.player {
+  position: relative;
+
+  &__icon {
+    width: 2rem;
+
+    &--playing {
+      animation: bounce 2.5s ease-in-out infinite alternate-reverse;
+      -webkit-animation: bounce 2.5s ease-in-out infinite alternate-reverse;
+    }
+
+    &--winner {
+      animation: bounce 0.2s ease-in-out infinite;
+      -webkit-animation: bounce 0.2s ease-in-out infinite;
+}
+
+    &--small {
+      width: 1.2rem;
+    }
+  }
+
+  &__name {
+    margin-top: 0.5rem;
+    font-weight: 700;
+    white-space: nowrap;
+
+    &--small {
+      margin-top: 0;
+    }
+  }
+
+  &__playing-indicator {
+    color: $color-red;
+    font-style: italic;
+    font-weight: 700;
+    margin-top: 0.75rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    animation: fading-winner 1.5s ease-in-out infinite;
+    -webkit-animation: fading-winner 1.5s ease-in-out infinite;
+  }
+}
+
+@media only screen and (min-width: $sm) {
+  .player {
+    &__name {
+      margin-bottom: 1rem;
+    }
+
+    &__icon {
+      width: 2.5rem;
+
+      &--small {
+        width: 1.2rem;
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  15% {
+    transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -o-transform: rotate(15deg);
+  }
+  45% {
+    transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+  }
+  60% {
+    transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+}
+
+@keyframes fading {
+  0% {
+    opacity: 0.5;
+  }
+}

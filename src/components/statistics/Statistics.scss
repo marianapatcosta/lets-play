@@ -1,0 +1,100 @@
+.statistics {
+  min-height: calc(100vh - $header-height);
+  padding: 1.5rem $horizontal-padding-mobile;
+  text-align: center;
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    margin-bottom: 1rem;
+  }
+
+  &__dashboard {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__victories {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  &__rounds {
+    margin: 0.75rem 0 1.5rem;
+  }
+
+  &__progress {
+    margin-bottom: 1.5rem;
+    p {
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__progress-bar {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__progress-bar-item {
+    background-color: $color-light-grey;
+    box-shadow: 0 0.063rem 0.25rem rgba($color-black, 0.5);
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin: 0 0.15rem;
+
+    &--filled {
+      background-color: $color-red;
+    }
+  }
+
+  &__timer {
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: $sm) {
+  .statistics {
+    padding: 3rem $horizontal-padding-desktop;
+
+    &__dashboard {
+      column-gap: 10rem;
+      display: flex;
+      flex-direction: revert;
+      justify-content: center;
+      margin: 3rem 0;
+
+      // for safari below 14.1 that not supports gap with flexbox
+      @media not all and (min-resolution: 0.001dpcm) {
+        @supports (-webkit-appearance: none) {
+          margin: -5em;
+          & > * {
+            margin: 5em;
+          }
+        }
+      }
+    }
+
+    &__victories {
+      margin-top: 0;
+    }
+
+    &__progress {
+      margin-bottom: 3rem;
+    }
+  }
+}
+
+@media only screen and (min-width: $xl) {
+  .statistics {
+    padding: 3rem $horizontal-padding-desktop-large;
+  }
+}

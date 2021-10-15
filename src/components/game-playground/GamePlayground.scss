@@ -1,0 +1,171 @@
+.game-playground {
+  background-color: $color-light-grey;
+  min-height: calc(100vh - $header-height);
+  padding: 1.5rem $horizontal-padding-mobile;
+  text-align: center;
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__selectors {
+    margin: 1rem 0;
+  }
+
+  &__button {
+    background-color: $color-white;
+    box-shadow: 0 0.1rem 0.4rem rgba($color-black, 0.5);
+    border-radius: 0.25rem;
+    -webkit-border-radius: 0.25rem;
+    -moz-border-radius: 0.25rem;
+    -ms-border-radius: 0.25rem;
+    -o-border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+
+    &--selected {
+      background-color: $color-red;
+      color: $color-white;
+      opacity: 1;
+    }
+
+    &--no-selected {
+      opacity: 0.75;
+    }
+
+    &--reset {
+      font-size: 95%;
+      min-width: 6rem;
+      padding: 0.3rem 0.75rem;
+    }
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.05);
+      -webkit-transform: scale(1.05);
+      -moz-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      -o-transform: scale(1.05);
+    }
+  }
+
+  &__game {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  &__winner {
+    position: absolute;
+    color: $color-red;
+    font-size: 300%;
+    font-weight: 700;
+    line-height: 3rem;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    width: 18.5rem;
+  }
+
+  &__player {
+    &--desktop {
+      display: none;
+    }
+  }
+
+  &__settings {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  &__select {
+    background-color: $color-white;
+    border: none;
+    border-radius: 0.25rem;
+    -webkit-border-radius: 0.25rem;
+    -moz-border-radius: 0.25rem;
+    -ms-border-radius: 0.25rem;
+    -o-border-radius: 0.25rem;
+    box-shadow: 0 0.063rem 0.25rem rgba($color-black, 0.5);
+    cursor: pointer;
+    font-size: 95%;
+    margin-right: 0.5rem;
+    min-width: 6rem;
+    padding: 0.3rem 0.75rem;
+    text-align: center;
+
+    &--disabled {
+      cursor: default;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  &__round-info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+  }
+
+  &__timer {
+    margin-top: 1rem;
+  }
+}
+
+@media only screen and (min-width: $sm) {
+  .game-playground {
+    padding: 3rem $horizontal-padding-desktop;
+
+    &__game {
+      align-items: center;
+      display: flex;
+      flex-direction: revert;
+      justify-content: center;
+      column-gap: 3rem;
+
+      // for safari below 14.1 that not supports gap with flexbox
+      @media not all and (min-resolution: 0.001dpcm) {
+        @supports (-webkit-appearance: none) {
+          margin: -1.5em;
+          & > * {
+            margin: 1.5em;
+          }
+        }
+      }
+    }
+
+    &__player {
+      display: none;
+
+      &--desktop {
+        display: block;
+      }
+    }
+
+    &__round-info {
+      align-items: center;
+      display: flex;
+      flex-direction: revert;
+    }
+
+    &__timer {
+      margin-top: 0;
+      margin-left: 3rem;
+    }
+  }
+}
+
+@media only screen and (min-width: $xl) {
+  .game-playground {
+    padding: 3rem $horizontal-padding-desktop-large;
+  }
+}
