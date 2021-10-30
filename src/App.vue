@@ -1,11 +1,9 @@
 <template>
   <Header />
   <main>
-    <UserProfile />
     <GamePlayground @update-rounds="handleRoundsHistoryUpdate" />
     <Statistics id="game-statistics" :roundsHistory="gameRoundsHistory" />
   </main>
-  <Footer @submit="handleFakeSubmission" />
   <div v-if="toastData.length">
     <Toast
       v-for="(toast, index) in toastData"

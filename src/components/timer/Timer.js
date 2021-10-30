@@ -4,16 +4,11 @@ import { formatTime } from "@/utils/game-utils";
 
 export default defineComponent({
   name: "Timer",
-  emits: ["manage-timer"],
+  emits: ["time"],
   props: {
     time: {
       type: Number,
-      required: true,
-    },
-    isTimerOn: {
-      type: Boolean,
       required: false,
-      default: false,
     },
     isControlled: {
       type: Boolean,
@@ -23,18 +18,39 @@ export default defineComponent({
   },
   data() {
     return {
+      isTimerOn: false,
+      currentTime: 0, // in milliseconds
       Pause,
       Play,
     };
   },
   computed: {
     formattedTime() {
-      return formatTime(this.time);
+      return formatTime(this.isControlled ? this.currentTime : this.time);
     },
   },
   methods: {
     handleTimerManagement() {
-      this.$emit("manage-timer");
+      this.isTimerOn ? this.pauseTimer() : this.startTimer();
     },
+    startTimer() {
+      if (this.isTimerOn) return;
+      this.isTimerOn = true;
+      this.timer = setInterval(() => {
+        this.currentTime += 1000;
+      }, 1000);
+    },
+    pauseTimer() {
+      this.isTimerOn = false;
+      clearInterval(this.timer);
+    },
+    resetTimer() {
+      this.isTimerOn = false;
+      this.currentTime = 0;
+      clearInterval(this.timer);
+    },
+  },
+  beforeUnmount() {
+    clearInterval(this.timer);
   },
 });

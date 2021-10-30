@@ -1,6 +1,6 @@
 <template>
   <div class="game-victories">
-    <h3 class="game-victories__subtitle">Game victories (%)</h3>
+    <h3 class="game-victories__subtitle">Victories and losses (%)</h3>
     <div class="game-victories__percentages">
       <div
         class="game-victories__percentages-per-player"

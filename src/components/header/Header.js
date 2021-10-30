@@ -1,5 +1,4 @@
 import { defineComponent } from "vue";
-import { SwordHealthLogo, SwordHealthLogoWhite } from "../../assets/icons";
 
 const SCROLL_TOP_OFFSET = 150;
 
@@ -8,8 +7,6 @@ export default defineComponent({
   data() {
     return {
       isOnTop: true,
-      SwordHealthLogo,
-      SwordHealthLogoWhite,
     };
   },
   methods: {

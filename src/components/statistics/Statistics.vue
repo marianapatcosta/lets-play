@@ -1,12 +1,11 @@
 <template>
   <section class="statistics">
-    <h2 class="statistics__title">Awesome statistics</h2>
-    <p>All statistics in on place!</p>
+    <h2 class="statistics__title">Game statistics</h2>
     <div class="statistics__dashboard">
       <GameVictories class="statistics__victories" :stats="stats" />
       <div class="statistics__rounds">
         <div class="statistics__progress">
-          <h3 class="statistics__subtitle">Played matches</h3>
+          <h3 class="statistics__subtitle">Played rounds</h3>
           <div class="statistics__progress-bar">
             <div
               v-for="(round, index) in TOTAL_ROUNDS"
@@ -22,7 +21,7 @@
               :aria-valuemax="TOTAL_ROUNDS"
             />
           </div>
-          <p>{{ playedRounds }} of {{ TOTAL_ROUNDS }} matches</p>
+          <p>{{ playedRounds }} of {{ TOTAL_ROUNDS }} rounds</p>
         </div>
         <GameHistory :roundsHistory="roundsHistory" />
       </div>

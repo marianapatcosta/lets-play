@@ -1,14 +1,6 @@
 <template>
   <header class="header" :class="{ 'header--on-top': isOnTop }">
-    <img
-      class="header__logo"
-      :src="isOnTop ? SwordHealthLogoWhite : SwordHealthLogo"
-      alt="Sword Health logo"
-    />
-    <div class="header__title">
-      <div class="header__title--bold">Frontend developer</div>
-      <div class="header__title--italic">Challenge</div>
-    </div>
+    <h1>Let's Play</h1>
   </header>
 </template>
 

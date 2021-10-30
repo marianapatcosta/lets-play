@@ -21,32 +21,11 @@
     background-color: $color-red;
     color: $color-white;
   }
-
-  &__logo {
-    width: 8.5rem;
-  }
-
-  &__title {
-    font-size: 90%;
-    text-align: right;
-
-    &--bold {
-      font-weight: 700;
-    }
-
-    &--italic {
-      font-style: italic;
-    }
-  }
 }
 
 @media only screen and (min-width: $sm) {
   .header {
     padding: 1.25rem $horizontal-padding-desktop;
-
-    &__logo {
-      width: 10rem;
-    }
   }
 }
 

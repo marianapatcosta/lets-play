@@ -1,7 +1,6 @@
 <template>
   <section class="game-playground">
     <h2 class="game-playground__title">Fun Games</h2>
-    <p>Welcome to the best games in the world</p>
     <div class="game-playground__selectors">
       <button
         v-for="game in GAMES"
@@ -49,7 +48,6 @@
               v-for="option in TIC_TAC_TOE_DIMENSIONS"
               :key="`${option.label}-dimension`"
               :value="option.value"
-              class="game-playground__select-option"
             >
               {{ option.label }}
             </option>
@@ -90,12 +88,7 @@
       />
       <div class="game-playground__round-info">
         <span v-show="currentRound"> Round {{ currentRound }} </span>
-        <Timer
-          class="game-playground__timer"
-          :time="currentTime"
-          :isTimerOn="isTimerOn"
-          @manage-timer="handleTimerManagement"
-        />
+        <Timer class="game-playground__timer" ref="timer" />
       </div>
       <Player
         class="game-playground__player"
