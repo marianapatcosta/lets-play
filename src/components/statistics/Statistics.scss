@@ -4,7 +4,7 @@
   text-align: center;
 
   &__title {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   &__subtitle {
@@ -64,6 +64,10 @@
 @media only screen and (min-width: $sm) {
   .statistics {
     padding: 3rem $horizontal-padding-desktop;
+
+    &__title {
+      margin-bottom: 3.5rem;
+    }
 
     &__dashboard {
       column-gap: 10rem;

@@ -62,4 +62,4 @@ export const MIN_VICTORIES_TO_WIN_CONNECT_4 = 7;
 
 export const TOTAL_ROUNDS = 9;
 
-export const GAMES = ["Tic tac toe", "4 in a row"];
+export const GAMES = ["Tic tac toe", "Connect 4"];

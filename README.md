@@ -1,7 +1,8 @@
-# sword-health-challenge
+# Let's Play!
 
-Challenge proposed by **Sword Health** during the recruitment process for a Frontend developer position.
-This project was developed using Vue3 with JavaScript and SCSS and complies with the requirements stated at [this](https://github.com/SWORDHealth/frontend-interview) github repo, including the suggested extra tasks.
+Web app to play Tic tac Toe and Connect 4 games. Developed using Vue3 with JavaScript and SCSS.
+
+![Picture2](https://user-images.githubusercontent.com/43031902/139539865-69f8cb3b-cfc3-49ef-ac52-3e672ef60f2d.png)
 
 ## Project setup
 

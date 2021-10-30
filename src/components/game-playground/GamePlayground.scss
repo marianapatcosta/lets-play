@@ -5,7 +5,7 @@
   text-align: center;
 
   &__title {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   &__selectors {
@@ -67,7 +67,7 @@
     -moz-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
-    width: 18.5rem;
+    width: 19rem;
   }
 
   &__player {
@@ -95,8 +95,7 @@
     font-size: 95%;
     margin-right: 0.5rem;
     min-width: 6rem;
-    padding: 0.3rem 0.75rem;
-    text-align: center;
+    padding: 0.3rem 0.75rem 0.3rem 2rem;
 
     &--disabled {
       cursor: default;
@@ -124,6 +123,10 @@
 @media only screen and (min-width: $sm) {
   .game-playground {
     padding: 3rem $horizontal-padding-desktop;
+
+    &__title {
+      margin-bottom: 3.5rem;
+    }
 
     &__game {
       align-items: center;

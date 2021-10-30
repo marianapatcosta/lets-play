@@ -12,17 +12,19 @@ import {
   TIC_TAC_TOE_DIMENSIONS,
   TOTAL_ROUNDS,
 } from "@/utils/game-metadata";
+import { getVictoriesPerPlayer } from "@/utils/game-utils";
+import {
+  checkTicTacToeLeftDiagonal,
+  checkTicTacToeRightDiagonal,
+  checkTicTacToeHorizontal,
+  checkTicTacToeVertical,
+} from "@/utils/tic-tac-toe-utils";
 import {
   checkConnect4LeftDiagonal,
   checkConnect4RightDiagonal,
   checkConnect4Horizontal,
   checkConnect4Vertical,
-  checkTicTacToeLeftDiagonal,
-  checkTicTacToeRightDiagonal,
-  checkTicTacToeHorizontal,
-  checkTicTacToeVertical,
-  getVictoriesPerPlayer,
-} from "@/utils/game-utils";
+} from "@/utils/connect-4-utils";
 
 export default defineComponent({
   name: "GamePlayground",
@@ -37,15 +39,12 @@ export default defineComponent({
     return {
       currentPlayer: null,
       currentRound: 1,
-      currentTime: 0, // in milliseconds
       isGameStarted: false,
-      isTimerOn: false,
       roundsHistory: [],
       moves: [],
       movesCount: 0,
       boardDimensions: TIC_TAC_TOE_DIMENSIONS[0].value,
       selectedGame: GAMES[0],
-      timer: null,
       roundWinner: null,
       gameWinner: null,
       GAMES,
@@ -77,7 +76,7 @@ export default defineComponent({
     },
     handleMove(cellIndex) {
       !this.isGameStarted && this.startGame();
-      !this.isTimerOn && this.startTimer();
+      this.$refs.timer.startTimer();
       this.movesCount++;
       const { row, column } =
         this.selectedGame === GAMES[0]
@@ -86,9 +85,6 @@ export default defineComponent({
       this.moves[row][column] = { ...MOVES[this.currentPlayer.moveId] };
       this.shiftPlayer();
       this.checkRoundWinner();
-    },
-    handleTimerManagement() {
-      this.isTimerOn ? this.pauseTimer() : this.startTimer();
     },
     getTicTacToeMoveCoords(cellIndex) {
       const row = Math.floor(cellIndex / this.boardDimensions);
@@ -106,7 +102,7 @@ export default defineComponent({
     startGame() {
       this.isGameStarted = true;
       this.currentPlayer = PLAYERS.player1;
-      this.startTimer();
+      this.$refs.timer.startTimer();
     },
     shiftPlayer() {
       this.currentPlayer =
@@ -125,27 +121,11 @@ export default defineComponent({
           : CONNECT_4_DIMENSIONS.columns;
       this.moves = new Array(rows).fill({}).map(() => Array(columns).fill({}));
     },
-    startTimer() {
-      this.isTimerOn = true;
-      this.timer = setInterval(() => {
-        this.currentTime += 1000;
-      }, 1000);
-    },
-    pauseTimer() {
-      this.isTimerOn = false;
-      clearInterval(this.timer);
-    },
-    resetTimer() {
-      this.isTimerOn = false;
-      this.currentTime = 0;
-      clearInterval(this.timer);
-    },
     checkRoundWinner() {
       this.selectedGame === GAMES[0]
         ? this.getTicTacToeRoundWinner()
         : this.getConnect4RoundWinner();
     },
-
     checkGameWinner() {
       const minVictoriesToWin = Math.ceil(TOTAL_ROUNDS / 2);
       if (this.currentRound < minVictoriesToWin) {
@@ -228,12 +208,13 @@ export default defineComponent({
     },
     handleRoundWin(winner) {
       this.currentPlayer = null;
-      this.pauseTimer();
+      this.$refs.timer.pauseTimer();
       this.roundWinner = winner;
       const roundSummary = {
         winner: this.roundWinner.id,
-        roundTime: this.currentTime,
+        roundTime: this.$refs.timer.currentTime,
       };
+
       this.roundsHistory = [...this.roundsHistory, roundSummary];
       this.$emit("update-rounds", this.roundsHistory);
       setTimeout(() => {
@@ -255,7 +236,7 @@ export default defineComponent({
       this.currentPlayer = null;
       this.movesCount = 0;
       this.roundWinner = null;
-      this.resetTimer();
+      this.$refs.timer.resetTimer();
       this.setMoves();
     },
     resetGame() {
@@ -273,8 +254,5 @@ export default defineComponent({
   },
   mounted() {
     this.setMoves();
-  },
-  beforeUnmount() {
-    clearInterval(this.timer);
   },
 });

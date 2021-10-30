@@ -1,6 +1,6 @@
 <template>
   <div class="game-history">
-    <h3 class="game-history__subtitle">Game history</h3>
+    <h3 class="game-history__subtitle">Victories history</h3>
     <div class="game-history__content">
       <div
         class="game-history__round-winner"
